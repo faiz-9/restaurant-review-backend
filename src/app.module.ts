@@ -9,9 +9,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import Restaurant from './entity/restaurant';
 import User from './entity/user';
 import Review from './entity/review';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'sqlite.db',
